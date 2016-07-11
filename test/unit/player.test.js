@@ -16,8 +16,28 @@ describe('Player', function(){
   'Kh', 'Ks', 'Kd', 'Kc',
   'Ah', 'As', 'Ad', 'Ac']
 
-  describe('#deal', function(){
+  describe('#value', function(){
+    it('starts with zero', function(){
+      player = new Player()
 
+      expect(player.score()).to.equal(0)
+    })
+    it('adds the value of a card', function(){
+      player = new Player()
+
+      player.hand.push("3h")
+      expect(player.score()).to.equal(3)
+    })
+    it('can add the value of a 2 digit number', function(){
+      player = new  Player()
+      player.hand.push('10d')
+      expect(player.score()).to.equal(10)
+    })
+    it('can add a face card', function(){
+      player = new Player()
+      player.hand.push('Ah')
+      expect(player.score()).to.equal(11)
+    })
     // xit('deals two cards', function(){
     //   var hand = new Player(deck);
     //   hand.deal();

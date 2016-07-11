@@ -85,4 +85,19 @@ describe('#table', function(){
       expect(table.shoe.cards.length).to.equal(0)
     })
   })
+
+  xdescribe('counting', function(){
+    it('keeps track of the running count', function(){
+      shoe = new Shoe(['As', 'Ks'])
+      player = new Player()
+
+      table = new Table(shoe, player)
+
+      table.hit(player)
+
+      expect(table.runningCount).to.deep.equal(['As', 'Ks'])
+    })
+
+
+  })
 })
