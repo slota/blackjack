@@ -17,17 +17,21 @@ describe('Given I visit /', function(){
       expect(result).to.equal('Welcome to the BlackJack');
     })
     element(by.id('startGame')).isDisplayed().then(function(result){
-      expect(result).to.be.True
+      expect(result).to.equal(true)
     })
     element(by.id('startGame')).getText().then(function(result){
       expect(result).to.equal("Start Game")
     })
     element(by.id('selectPlayers')).isDisplayed().then(function(result){
-      expect(result).to.be.True
+      expect(result).to.equal(true)
     })
     element(by.cssContainingText('option', '4')).click();
     element(by.id('selectPlayers')).getAttribute('value').then(function(result){
       expect(result).to.equal('4')
+    })
+    element(by.id('startGame')).click()
+    element(by.id("homepage")).isDisplayed().then(function(result){
+      expect(result).to.equal(false)
     })
 
   })

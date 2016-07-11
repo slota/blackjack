@@ -2,10 +2,12 @@ var React = window.React = require('react'),
     ReactDOM = require("react-dom");
 
 var TodoApp = React.createClass({
-
+  hide: function() {
+    $('#homepage').hide()
+  },
   render: function() {
     return (
-      <div>
+      <div id="homepage">
         <h1>Welcome to the BlackJack</h1>
         <select id="selectPlayers">
           <option value="1">1</option>
@@ -14,7 +16,7 @@ var TodoApp = React.createClass({
           <option value="4">4</option>
           <option value="5">5</option>
         </select>
-        <button id="startGame" className="btn btn-success">Start Game</button>
+        <button onClick={this.hide} id="startGame" className="btn btn-success">Start Game</button>
       </div>
 
     );
