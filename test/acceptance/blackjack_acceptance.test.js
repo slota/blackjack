@@ -29,10 +29,33 @@ describe('Given I visit /', function(){
     element(by.id('selectPlayers')).getAttribute('value').then(function(result){
       expect(result).to.equal('4')
     })
-    element(by.id('startGame')).click()
-    element(by.id("homepage")).isDisplayed().then(function(result){
+    element(by.css('#dealer')).isPresent().then(function(result){
       expect(result).to.equal(false)
     })
+    element(by.id('startGame')).click()
+    element(by.id("homepage")).isPresent().then(function(result){
+      expect(result).to.equal(false)
+    })
+  })
+  it('should display player and robots', function(){
+    browser.get('/');
+    element(by.cssContainingText('option', '3')).click();
+    element(by.id('startGame')).click();
 
+    element(by.id('dealer')).isDisplayed().then(function(result){
+      expect(result).to.equal(true)
+    })
+    element(by.id('image0')).isDisplayed().then(function(result){
+      expect(result).to.equal(true)
+    })
+    element(by.id('humanPlayer')).isDisplayed().then(function(result){
+      expect(result).to.equal(true)
+    })
+    element(by.id('hit')).isDisplayed().then(function(result){
+      expect(result).to.equal(true)
+    })
+    element(by.id('stay')).isDisplayed().then(function(result){
+      expect(result).to.equal(true)
+    })
   })
 })

@@ -4,6 +4,7 @@
   margin: 0.2em 0;
   background: #ccc;
   color: #000;
+  background-color: green;
   padding: 0.2em 0;
 }
 
@@ -91,6 +92,7 @@ body {
   background: #fafafa;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #333;
+  background-color: green;
 }
 
 .hero-unit {
@@ -115,4 +117,45 @@ body {
   background: #ccc;
   color: #000;
   padding: 0.2em 0;
+}
+
+.eldealer {
+  height: 100px;
+  margin: 0 auto;
+  display: inherit;
+}
+
+#humanPlayer {
+  height: 100px;
+  margin: 0 auto;
+  display: inherit;
+  margin-top: 350px;
+}
+
+#image0 {
+  position: relative;
+  left: -20%
+}
+#image1 {
+  position: relative;
+  left: -17%;
+  top: 225px;
+}
+#image2 {
+  position: relative;
+  right: -50%;
+  top: 225px;
+}
+#image3 {
+  position: relative;
+  right: -53%;
+}
+
+.pic {
+  padding: 10px;
+}
+
+.deal {
+  position: relative;
+  left: 41.39%;
 }
