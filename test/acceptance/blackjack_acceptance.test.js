@@ -42,13 +42,10 @@ describe('Given I visit /', function(){
     element(by.cssContainingText('option', '3')).click();
     element(by.id('startGame')).click();
 
-    element(by.id('dealer')).isDisplayed().then(function(result){
+    element(by.id('player0')).isDisplayed().then(function(result){
       expect(result).to.equal(true)
     })
-    element(by.id('image0')).isDisplayed().then(function(result){
-      expect(result).to.equal(true)
-    })
-    element(by.id('humanPlayer')).isDisplayed().then(function(result){
+    element(by.id('player1')).isDisplayed().then(function(result){
       expect(result).to.equal(true)
     })
     element(by.id('hit')).isDisplayed().then(function(result){
@@ -56,6 +53,26 @@ describe('Given I visit /', function(){
     })
     element(by.id('stay')).isDisplayed().then(function(result){
       expect(result).to.equal(true)
+    })
+  })
+  it('deals a card to players', function(){
+
+    element(by.css('.card')).isDisplayed().then(function(result){
+      expect(result).to.equal(true)
+    })
+  })
+  it('deals cards to dealer', function(){
+    element(by.css('#player0')).isDisplayed().then(function(result){
+      expect(result).to.equal(true)
+    })
+
+  })
+  it('player can hit', function(){
+    element(by.id('hit')).click()
+    var cards = element.all(protractor.By.css('.card'))
+    cards.count().then(function(counter) {
+      console.log(counter);
+      expect(counter).to.equal(11)
     })
   })
 })

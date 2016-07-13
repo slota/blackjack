@@ -38,6 +38,28 @@ describe('Player', function(){
       player.hand.push('Ah')
       expect(player.score()).to.equal(11)
     })
+    it('can add two cards', function(){
+      player = new Player()
+      player.hand.push('Jd')
+      player.hand.push('Jh')
+
+      expect(player.score()).to.equal(20)
+    })
+    it('calmly exclaims "boom goes the dynamite" when player busts', function(){
+      player = new Player()
+      player.hand.push('Jd')
+      player.hand.push('Jh')
+      player.hand.push('5s')
+
+      expect(player.score()).to.equal('boom goes the dynamite')
+    })
+    it('checks status of player', function(){
+      player = new Player()
+      player.hand.push('Jd')
+      player.hand.push('Jh')
+      player.hand.push('5s')
+      expect(player.statusType()).to.equal(false)
+    })
     // xit('deals two cards', function(){
     //   var hand = new Player(deck);
     //   hand.deal();

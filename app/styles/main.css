@@ -119,34 +119,34 @@ body {
   padding: 0.2em 0;
 }
 
-.eldealer {
+#player0 {
   height: 100px;
   margin: 0 auto;
   display: inherit;
 }
 
-#humanPlayer {
+#player1 {
   height: 100px;
   margin: 0 auto;
   display: inherit;
   margin-top: 350px;
 }
 
-#image0 {
+#player2 {
   position: relative;
   left: -20%
 }
-#image1 {
+#player3 {
   position: relative;
   left: -17%;
   top: 225px;
 }
-#image2 {
+#player4 {
   position: relative;
   right: -50%;
   top: 225px;
 }
-#image3 {
+#player5 {
   position: relative;
   right: -53%;
 }
