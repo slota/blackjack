@@ -120,12 +120,12 @@ describe('Player', function(){
       player.cardSort()
     	expect(player.hand[player.hand.length - 2].slice(0,1)).to.equal('A')
     })
-    xit('Player\'s hand remains the same', function(){
+    it('Player\'s hand remains the same', function(){
       player = new Player()
       player.hand.push('Ad')
       player.hand.push('Jd')
 
-      player.cardSort()
+      player.score()
       expect(player.hand).to.deep.equal(['Ad', 'Jd'])
     })
 
