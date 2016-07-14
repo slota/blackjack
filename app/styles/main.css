@@ -113,14 +113,14 @@ body {
 
 }
 .mainContent {
-  margin-top: 400px;
+  margin-top: 450px;
 }
 
 .chipStuff {
   /*opacity: .8;*/
-  position: absolute;
-    left: 620px;
-    top: 0px;
+  position: relative;
+    left: -230px;
+    top: -680px;
   z-index: -10
 }
 
