@@ -95,6 +95,45 @@ body {
   background-color: green;
 }
 
+#homepage {
+    text-align: center;
+}
+
+.titleStuff {
+  font-family: 'Great Vibes', cursive;
+  font-size: 54px;
+  color: green;
+}
+.descriptionStuff {
+  font-family: 'Great Vibes', cursive;
+  font-size: 24px;
+  color: red;
+  padding: 12px;
+  opacity: .5;
+
+}
+.mainContent {
+  margin-top: 400px;
+}
+
+.chipStuff {
+  /*opacity: .8;*/
+  position: absolute;
+    left: 620px;
+    top: 0px;
+  z-index: -10
+}
+
+.startButton {
+  font-family: 'Great Vibes', cursive;
+  background-color: white;
+  margin-top: 45px;
+  height: 60px;
+  width: 220px;
+  font-size: 28px;
+  font-weight: bolder;
+}
+
 .hero-unit {
   margin: 50px auto 0 auto;
   width: 300px;
