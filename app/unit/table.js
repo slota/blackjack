@@ -40,4 +40,18 @@ Table.prototype.trueCount = function(){
   this.truthCount = (this.runCount / (Math.ceil(this.shoe.cards.length / 52)))
 }
 
+Table.prototype.findWinner = function(){
+  if(!this.players[1].statusType()) return "dealer"
+  if(!this.players[0].statusType()) return "player"
+  if(this.players[0].score() > this.players[1].score()) return "dealer"
+  if(this.players[1].score() > this.players[0].score()) return "player"
+  return "push"
+}
+
+Table.prototype.determineBlackJack = function(){
+  if(this.players[1].score() == 21 && this.players[1].hand.length ==2) return "player blackjack"
+  if(this.players[0].score() == 21 && this.players[0].hand.length ==2) return "dealer blackjack"
+}
+
+
 module.exports = Table

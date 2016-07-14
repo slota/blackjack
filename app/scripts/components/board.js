@@ -36,10 +36,10 @@ var Board = React.createClass({
   },
 
   stay: function(){
-    var derp = this.props.table
-    derp.players[1].stayIn = true;
+    var newTable = this.props.table
+    newTable.players[1].stayIn = true;
     this.setState({
-      table: derp
+      table: newTable
     })
     while(this.props.table.players[0].score() < 17) {
       var postHit = this.props.table
@@ -59,7 +59,25 @@ var Board = React.createClass({
     var stayIn = this.props.table.players[1].stayIn
     var runCount = this.props.table.runCount
     var trueCount = this.props.table.truthCount
-    console.log(bust);
+    var winner;
+    if(this.props.table.findWinner() == 'dealer') {
+      winner = 'You lose'
+    }
+    else if(this.props.table.findWinner() == 'push') {
+      winner = 'Push'
+    }
+    else {
+      winner = 'You win'
+    }
+    var blackjack = this.props.table.determineBlackJack()
+    if (blackjack == 'player blackjack') {
+      stayIn = true
+      winner = "You win with blackjack!!"
+    }
+    if (blackjack == 'dealer blackjack'){
+      stayIn = true
+      winner = "You lose, dealer has blackjack"
+    }
     var displayHitAndStay
     if (bust && !stayIn){
       displayHitAndStay = true
@@ -76,12 +94,15 @@ var Board = React.createClass({
           {(bust
               ? null
               : <div>
-                  <div className="alert alert-danger" id='bustMessage'>aaaaaand boom goes the dynamite</div>
+                  <div className="alert alert-danger" id='bustMessage'>You busted, house wins</div>
                   <button className="btn btn-default" onClick={this.newHand} id="thaNewDeal">deal a new deal</button>
                 </div>
           )}
           {(stayIn
-              ? <button className="btn btn-default" onClick={this.newHand} id="thaNewDeal">deal a new deal</button>
+              ? <div>
+                  <div className="alert alert-danger" id='winMessage'>{winner}</div>
+                  <button className="btn btn-default" onClick={this.newHand} id="thaNewDeal">deal a new deal</button>
+                </div>
               : null
           )}
         </div>

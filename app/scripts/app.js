@@ -44,12 +44,13 @@ var Container = React.createClass({
     'Kh', 'Ks', 'Kd', 'Kc',
     'Ah', 'As', 'Ad', 'Ac',
   ]
+  var sixDecks = singleDeck.slice(0).concat(singleDeck.slice(0)).concat(singleDeck.slice(0)).concat(singleDeck.slice(0)).concat(singleDeck.slice(0)).concat(singleDeck.slice(0))
     var players = []
     for (var i = 0; i < count; i++) {
       var player = new Player()
       players.push(player)
     }
-    var shoe = new Shoe(singleDeck)
+    var shoe = new Shoe(sixDecks)
     var table = new Table(shoe, players)
     table.deal()
     var self = this
