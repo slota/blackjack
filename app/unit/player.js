@@ -1,6 +1,7 @@
 function Player(){
   this.hand = []
   this.stillIn = true;
+  this.stayIn = false;
 }
 
 Player.prototype.score = function() {

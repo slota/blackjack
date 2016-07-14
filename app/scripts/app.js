@@ -19,6 +19,8 @@ var Container = React.createClass({
 
   postHit: function(boardState) {
     console.log("updated table", boardState);
+    console.log(boardState.players[1].statusType())
+
     this.setState({
       table: boardState
     }, function(){

@@ -75,4 +75,60 @@ describe('Given I visit /', function(){
       expect(counter).to.equal(11)
     })
   })
+  it('player is told they bust', function(){
+    element(by.id('hit')).click()
+    element(by.id('hit')).click()
+    element(by.id('hit')).click()
+    element(by.id('hit')).click()
+    element(by.id('hit')).click()
+    element(by.id('hit')).click()
+    element(by.id('hit')).click()
+    element(by.id('hit')).click()
+    element(by.id('hit')).click()
+    element(by.id('hit')).click()
+
+    element(by.css('#bustMessage')).getText().then(function(result){
+      expect(result).to.equal('aaaaaand boom goes the dynamite')
+    })
+  })
+  it('player is told they bust', function(){
+    element(by.id('hit')).click()
+    element(by.id('hit')).click()
+    element(by.id('hit')).click()
+    element(by.id('hit')).click()
+    element(by.id('hit')).click()
+    element(by.id('hit')).click()
+    element(by.id('hit')).click()
+    element(by.id('hit')).click()
+    element(by.id('hit')).click()
+    element(by.id('hit')).click()
+
+    var cards = element.all(protractor.By.css('.card'))
+    cards.count().then(function(counter) {
+    element(by.id('hit')).click()
+    cards.count().then(function(newCount) {
+      expect(newCount == counter).to.equal(true)
+    })
+  })
+  })
+})
+describe('Given I visit /', function(){
+  it('should be able to stay', function(){
+    browser.get('/');
+    element(by.cssContainingText('option', '0')).click();
+    element(by.id('startGame')).click();
+    element(by.id('stay')).click()
+    var cards = element.all(protractor.By.css('.card'))
+    cards.count().then(function(counter) {
+      element(by.id('hit')).click()
+      cards.count().then(function(newCount) {
+        expect(newCount == counter).to.equal(true)
+      }).then(function(){
+        element(by.id('thaNewDeal')).getText().then(function(text){
+          expect(text).to.equal('deal a new deal')
+        })
+      })
+
+    })
+  })
 })
