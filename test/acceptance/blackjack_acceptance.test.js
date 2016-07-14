@@ -13,7 +13,7 @@ describe('Given I visit /', function(){
   it('should display a title', function(){
     browser.get('/');
     element(by.tagName('h1')).getText().then(function(result){
-      expect(result).to.equal('Welcome to the BlackJack');
+      expect(result).to.equal('Welcome to Casino Counter');
     })
     element(by.id('startGame')).isDisplayed().then(function(result){
       expect(result).to.equal(true)
@@ -24,9 +24,9 @@ describe('Given I visit /', function(){
     element(by.id('selectPlayers')).isDisplayed().then(function(result){
       expect(result).to.equal(true)
     })
-    element(by.cssContainingText('option', '4')).click();
+    element(by.cssContainingText('option', '0')).click();
     element(by.id('selectPlayers')).getAttribute('value').then(function(result){
-      expect(result).to.equal('4')
+      expect(result).to.equal('0')
     })
     element(by.css('#dealer')).isPresent().then(function(result){
       expect(result).to.equal(false)
