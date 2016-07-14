@@ -2,11 +2,17 @@
 function Table(shoe, players){
   this.shoe = shoe
   this.players = players
+  this.runCount = 0;
+  this.truthCount = 0;
+  this.usedCards = []
 }
 
 Table.prototype.hit = function(player) {
   var cardDealt = this.shoe.cards.shift()
   player.hand.push(cardDealt)
+  this.usedCards.push(cardDealt)
+  this.runningCount()
+  this.trueCount()
 }
 
 Table.prototype.deal = function() {
@@ -17,22 +23,38 @@ Table.prototype.deal = function() {
 })
 }
 
-Table.prototype.runningCount = function() {
-  return this.players.reduce(function(prev, current){
-    return prev += current.hand.reduce(function(prev1, card){
+Table.prototype.addToUsedCards = function(){
 
-      var card = card.slice(0, -1)
-      
-      if(Number(card) < 7) return prev1 += 1
-      else if(Number(card) <= 9) return prev1 += 0
-      else return prev1 -= 1
+}
+
+Table.prototype.runningCount = function() {
+  var counter= this.usedCards.reduce(function(prev, current){
+
+      var card = current.slice(0, -1)
+
+      if(Number(card) < 7) return prev += 1
+      else if(Number(card) <= 9) return prev += 0
+      else return prev -= 1
     }, 0)
-  }, 0)
+  console.log(counter);
+  this.runCount = counter
+  // var counter = this.players.reduce(function(prev, current){
+  //   return prev += current.hand.reduce(function(prev, card){
+  //
+  //     var card = card.slice(0, -1)
+  //
+  //     if(Number(card) < 7) return prev += 1
+  //     else if(Number(card) <= 9) return prev += 0
+  //     else return prev -= 1
+  //   }, 0)
+  // }, 0)
+  // console.log(counter);
+  // this.runCount += counter
 }
 
 Table.prototype.trueCount = function(){
-
-  return(this.runningCount() / (Math.ceil(this.shoe.cards.length / 52)))
+  this.runningCount()
+  this.truthCount = (this.runCount / (Math.ceil(this.shoe.cards.length / 52)))
 }
 
 module.exports = Table

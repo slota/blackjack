@@ -84,8 +84,8 @@ describe('#table', function(){
 
       table.deal()
       table.hit(player)
-
-      expect(table.runningCount()).to.equal(1)
+      table.runningCount()
+      expect(table.runCount).to.equal(1)
     })
 
     it('keeps track of the true count', function(){
@@ -96,8 +96,8 @@ describe('#table', function(){
 
       table.deal()
       table.hit(player)
-
-      expect(table.trueCount()).to.equal(-3)
+      table.trueCount()
+      expect(table.truthCount).to.equal(-3)
     })
 
     it('has two players at the table', function(){
@@ -142,7 +142,27 @@ describe('#table', function(){
       var table = new Table(shoe, players)
 
       table.deal()
-      expect(table.runningCount()).to.equal(-4)
+      table.runningCount()
+      expect(table.runCount).to.equal(-4)
+    })
+
+    it('player takes a hit and running count is correct', function(){
+      var shoe = new Shoe(['As', 'Ks', 'Qs', 'Js', '10s', 'Ac','As', 'Ks', 'Qs', 'Js', '10s', 'Ac'])
+      var player = new Player()
+      var player2 = new Player()
+      var players = []
+
+      players.push(player)
+      players.push(player2)
+
+      var table = new Table(shoe, players)
+
+      table.deal()
+      table.runningCount()
+      table.hit(player)
+      table.runningCount()
+
+      expect(table.runCount).to.equal(-5)
     })
   })
 })

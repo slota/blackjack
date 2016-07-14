@@ -91,7 +91,7 @@ describe('Given I visit /', function(){
       expect(result).to.equal('aaaaaand boom goes the dynamite')
     })
   })
-  it('player is told they bust', function(){
+  it('player cannot hit when they bustnul', function(){
     element(by.id('hit')).click()
     element(by.id('hit')).click()
     element(by.id('hit')).click()
@@ -106,10 +106,20 @@ describe('Given I visit /', function(){
     var cards = element.all(protractor.By.css('.card'))
     cards.count().then(function(counter) {
     element(by.id('hit')).click()
-    cards.count().then(function(newCount) {
-      expect(newCount == counter).to.equal(true)
+      cards.count().then(function(newCount) {
+        expect(newCount == counter).to.equal(true)
+      })
     })
   })
+  it('displays running count', function(){
+    element(by.id('runningCount')).isDisplayed().then(function(result){
+      expect(result).to.equal(true)
+    })
+  })
+  it('displays true count', function(){
+    element(by.id('trueCount')).isDisplayed().then(function(result){
+      expect(result).to.equal(true)
+    })
   })
 })
 describe('Given I visit /', function(){
@@ -117,6 +127,7 @@ describe('Given I visit /', function(){
     browser.get('/');
     element(by.cssContainingText('option', '0')).click();
     element(by.id('startGame')).click();
+    element(by.id('hit')).click()
     element(by.id('stay')).click()
     var cards = element.all(protractor.By.css('.card'))
     cards.count().then(function(counter) {
@@ -126,6 +137,12 @@ describe('Given I visit /', function(){
       }).then(function(){
         element(by.id('thaNewDeal')).getText().then(function(text){
           expect(text).to.equal('deal a new deal')
+        }).then(function(){
+          element(by.id('thaNewDeal')).click()
+          var cards = element.all(protractor.By.css('.card'))
+          cards.count().then(function(count){
+            expect(count).to.equal(4)
+          })
         })
       })
 

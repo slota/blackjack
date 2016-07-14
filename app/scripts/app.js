@@ -18,9 +18,6 @@ var Container = React.createClass({
   },
 
   postHit: function(boardState) {
-    console.log("updated table", boardState);
-    console.log(boardState.players[1].statusType())
-
     this.setState({
       table: boardState
     }, function(){
@@ -52,7 +49,6 @@ var Container = React.createClass({
       var player = new Player()
       players.push(player)
     }
-    console.log(players);
     var shoe = new Shoe(singleDeck)
     var table = new Table(shoe, players)
     table.deal()

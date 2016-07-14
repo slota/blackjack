@@ -2,9 +2,7 @@
 
 var IndividualPlayer = React.createClass({
   render: function() {
-    console.log(this.props.player.hand)
     var self = this
-    console.log(this.props.player.hand);
     var playerCards = this.props.player.hand.map(function(val, ind){
       return <img style={{height: '100px'}} src={"../../images/playing_cards/"+ val +".png"} className="card" key={ind} />
     })

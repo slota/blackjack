@@ -4,6 +4,7 @@ function Player(){
   this.stayIn = false;
 }
 
+
 Player.prototype.score = function() {
   if(!this.hand[0]) return 0;
   var playerScore = this.hand.reduce(function(prev, current){
@@ -29,7 +30,7 @@ Player.prototype.score = function() {
 }
 
 Player.prototype.statusType = function(){
-    if(this.score() < 21){
+    if(this.score() <= 21){
       this.stillIn = true
     }
     else{
