@@ -35,8 +35,8 @@ describe('Player', function(){
     })
     it('can add a face card', function(){
       player = new Player()
-      player.hand.push('Ah')
-      expect(player.score()).to.equal(11)
+      player.hand.push('Kh')
+      expect(player.score()).to.equal(10)
     })
     it('can add two cards', function(){
       player = new Player()
@@ -44,6 +44,32 @@ describe('Player', function(){
       player.hand.push('Jh')
 
       expect(player.score()).to.equal(20)
+    })
+    it('can distinguish one ace in a hand', function(){
+      player = new Player()
+      player.hand.push('5d')
+      player.hand.push('Ah')
+
+      expect(player.score()).to.equal(16)
+    })
+    it('counts an ace as 1 when an 11 would call a bust', function(){
+      player = new Player()
+      player.hand.push('5d')
+      player.hand.push('2d')
+      player.hand.push('Jh')
+      player.hand.push('Ah')
+
+      expect(player.score()).to.equal(18)
+    })
+    it('can distinguish multiple aces in a hand', function(){
+      player = new Player()
+      player.hand.push('5d')
+      player.hand.push('Ad')
+      player.hand.push('2d')
+      player.hand.push('Ah')
+      player.hand.push('2c')
+      player.hand.push('Jh')
+      expect(player.score()).to.equal(21)
     })
     it('calmly exclaims "boom goes the dynamite" when player busts', function(){
       player = new Player()
@@ -60,18 +86,40 @@ describe('Player', function(){
       player.hand.push('5s')
       expect(player.statusType()).to.equal(false)
     })
-    // xit('deals two cards', function(){
-    //   var hand = new Player(deck);
-    //   hand.deal();
-    //
-    //   expect(hand.cards.length).to.equal(2);
-    // })
+  })
+  describe('#sort', function(){
+  	it('returns an instanceOf Array', function(){
+      player = new Player()
+      player.hand.push('Jd')
+      player.cardSort()
+  	  expect(player.hand).to.be.instanceOf(Array)
+  	})
+    it('rerturns an array with same length as hand', function(){
+      player = new Player()
+      player.hand.push('Jd')
+      var preSort = player.hand.length
+      player.cardSort()
+      expect(preSort == player.hand.length).to.equal(true)
+    })
+    it('Pushes the ace to the back on the array', function(){
+      player = new Player()
+      player.hand.push('Ad')
+      player.hand.push('Jd')
+      player.hand.push('Jh')
+      player.hand.push('5s')
+      player.cardSort()
+    	expect(player.hand[player.hand.length - 1]).to.equal('Ad')
+    })
+    it('Can push two aces to the back of the array', function(){
+      player = new Player()
+      player.hand.push('Ad')
+      player.hand.push('Jd')
+      player.hand.push('Ak')
+      player.hand.push('Jh')
+      player.hand.push('5s')
+      player.cardSort()
+    	expect(player.hand[player.hand.length - 2].slice(0,1)).to.equal('A')
+    })
 
-    // it('deals cards with a suit and a value', function(){
-    //   var hand = new Player(['2h', '2s']);
-    //   hand.deal();
-    //   console.log(hand.cards[0][hand.cards[0].length -1 ]);
-    //   expect(hand.cards[0][hand.cards[0].length -1 ]).to.equal('h')
-    // })
   })
 })

@@ -36,7 +36,6 @@ Table.prototype.runningCount = function() {
       else if(Number(card) <= 9) return prev += 0
       else return prev -= 1
     }, 0)
-  console.log(counter);
   this.runCount = counter
   // var counter = this.players.reduce(function(prev, current){
   //   return prev += current.hand.reduce(function(prev, card){
