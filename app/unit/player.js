@@ -7,6 +7,7 @@ function Player(){
 
 Player.prototype.score = function() {
   if(!this.hand[0]) return 0;
+  var newHand = this.hand
   this.cardSort()
   var playerScore = this.hand.reduce(function(prev, current){
     var card = current;
@@ -22,6 +23,9 @@ Player.prototype.score = function() {
     }
 
   }, 0)
+  this.hand = newHand
+  console.log('here is teh hand',this.hand);
+  console.log('here is teh old hand',newHand);
     return playerScore;
 }
 
