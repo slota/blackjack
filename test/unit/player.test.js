@@ -71,13 +71,13 @@ describe('Player', function(){
       player.hand.push('Jh')
       expect(player.score()).to.equal(21)
     })
-    it('calmly exclaims "boom goes the dynamite" when player busts', function(){
+    it('has 25 as the player\'s score', function(){
       player = new Player()
       player.hand.push('Jd')
       player.hand.push('Jh')
       player.hand.push('5s')
 
-      expect(player.score()).to.equal('boom goes the dynamite')
+      expect(player.score()).to.equal(25)
     })
     it('checks status of player', function(){
       player = new Player()

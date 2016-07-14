@@ -55,7 +55,6 @@ describe('Given I visit /', function(){
     })
   })
   it('deals a card to players', function(){
-
     element(by.css('.card')).isDisplayed().then(function(result){
       expect(result).to.equal(true)
     })
@@ -66,15 +65,6 @@ describe('Given I visit /', function(){
     })
 
   })
-  it('player can hit', function(){
-    element(by.id('hit')).click()
-    var cards = element.all(protractor.By.css('.card'))
-    cards.count().then(function(counter) {
-      console.log(counter);
-      expect(counter).to.equal(11)
-    })
-  })
-
   it('hides hit button', function(){
     element(by.id('stay')).click()
     element(by.id('hit')).isPresent().then(function(result){
@@ -106,6 +96,18 @@ describe('Given I visit /', function(){
   it('displays true count', function(){
     element(by.id('trueCount')).isDisplayed().then(function(result){
       expect(result).to.equal(true)
+    })
+  })
+
+  it('player can hit', function(){
+    browser.get('/')
+    element(by.cssContainingText('option', '4')).click();
+    element(by.id('startGame')).click()
+    element(by.id('hit')).click()
+    var cards = element.all(protractor.By.css('.card'))
+    cards.count().then(function(counter) {
+      console.log(counter);
+      expect(counter >= 11).to.equal(true)
     })
   })
 

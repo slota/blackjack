@@ -22,12 +22,7 @@ Player.prototype.score = function() {
     }
 
   }, 0)
-  if(playerScore > 21){
-    return 'boom goes the dynamite'
-  }
-  else{
     return playerScore;
-  }
 }
 
 Player.prototype.cardSort = function(){
@@ -35,14 +30,14 @@ Player.prototype.cardSort = function(){
     var card = this.hand[i].slice(0, -1)
     if(card == 'A'){
       if(this.hand[this.hand.length - 1].slice(0,1) == 'A' && i !== this.hand.length -1){
-          oldValue = this.hand[this.hand.length - 2]
-          ace = this.hand[i]
+          var oldValue = this.hand[this.hand.length - 2]
+          var ace = this.hand[i]
           this.hand[this.hand.length - 2] = ace
           this.hand[i] = oldValue
       }
       else {
-        oldValue = this.hand[this.hand.length -1]
-        ace = this.hand[i]
+        var oldValue = this.hand[this.hand.length -1]
+        var ace = this.hand[i]
         this.hand[this.hand.length -1] = ace
         this.hand[i] = oldValue
       }
