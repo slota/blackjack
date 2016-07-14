@@ -60,6 +60,12 @@ var Board = React.createClass({
     var runCount = this.props.table.runCount
     var trueCount = this.props.table.truthCount
     console.log(bust);
+    var displayHitAndStay
+    if (bust && !stayIn){
+      displayHitAndStay = true
+    } else {
+      displayHitAndStay = false
+    }
 
     return (
       <div id="table">
@@ -81,10 +87,13 @@ var Board = React.createClass({
         </div>
           {createPlayers}
         </div>
-        <div className="hitAndStay">
-        <button onClick={this.hit} id='hit' className="deal btn btn-primary"> HIT!! </button>
-        <button id='stay' onClick={this.stay} className="deal btn btn-danger"> STAY!!</button>
-        </div>
+        {(displayHitAndStay
+          ? <div className="hitAndStay">
+              <button onClick={this.hit} id='hit' className="deal btn btn-primary"> HIT!! </button>
+              <button id='stay' onClick={this.stay} className="deal btn btn-danger"> STAY!!</button>
+            </div>
+          : null
+        )}
       </div>
     )
   }

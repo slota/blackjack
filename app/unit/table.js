@@ -23,10 +23,6 @@ Table.prototype.deal = function() {
 })
 }
 
-Table.prototype.addToUsedCards = function(){
-
-}
-
 Table.prototype.runningCount = function() {
   var counter= this.usedCards.reduce(function(prev, current){
 
@@ -38,18 +34,6 @@ Table.prototype.runningCount = function() {
     }, 0)
   console.log(counter);
   this.runCount = counter
-  // var counter = this.players.reduce(function(prev, current){
-  //   return prev += current.hand.reduce(function(prev, card){
-  //
-  //     var card = card.slice(0, -1)
-  //
-  //     if(Number(card) < 7) return prev += 1
-  //     else if(Number(card) <= 9) return prev += 0
-  //     else return prev -= 1
-  //   }, 0)
-  // }, 0)
-  // console.log(counter);
-  // this.runCount += counter
 }
 
 Table.prototype.trueCount = function(){
