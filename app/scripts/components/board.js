@@ -115,7 +115,6 @@ var Board = React.createClass({
       <div id="table">
         <div id ="players">
         <div>
-
           <div className="jumbotron">
         <button className="btn btn-default" onClick={this.hide} id="toggleCounts">Toggle Counts</button>
           <div id="counts">
@@ -145,6 +144,7 @@ var Board = React.createClass({
           : <button className="btn btn-default hitAndStay " onClick={this.newHand} id="thaNewDeal">Deal a new hand</button>
         )}
       </div>
+    </div>
     )
   }
 })
