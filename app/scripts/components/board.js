@@ -26,6 +26,11 @@ var Board = React.createClass({
   },
   newHand: function(){
     var newTable = this.props.table
+
+    if(this.props.table.shoe.cards.length < 10){
+      this.props.createBoard(this.props.players)
+    }
+
     newTable.players.forEach(function(player){
       player.hand = []
       player.stillIn = true;
@@ -53,10 +58,8 @@ var Board = React.createClass({
         var postHit = this.props.table
         postHit.hit(this.props.table.players[0])
         this.props.updatePostHit(postHit)
-        console.log("hola!!");
       }
     }
-    console.log(this.props.table.players[0].hand);
 
   },
 

@@ -22,7 +22,7 @@ var Container = React.createClass({
       table: boardState
     }, function(){
       this.setState({
-        board: <Board players={this.state.playerCount} updatePostHit={this.postHit} table={this.state.table} />
+        board: <Board players={this.state.playerCount} updatePostHit={this.postHit} table={this.state.table} createBoard={this.createBoard} />
       })
     })
   },
@@ -60,7 +60,7 @@ var Container = React.createClass({
     }, function(){
       this.setState({
 
-      board: <Board players={self.state.playerCount} updatePostHit={self.postHit} table={this.state.table} />
+      board: <Board players={self.state.playerCount} updatePostHit={self.postHit} table={this.state.table} createBoard={this.createBoard} />
     })
     })
   },
