@@ -163,14 +163,14 @@ body {
 }
 
 #runningCount {
-  font-family: 'Great Vibes';
+  font-family: 'Arial';
   font-size: 1.5em;
   font-weight: bold;
 
 }
 
 #trueCount {
-  font-family: 'Great Vibes';
+  font-family: 'Arial';
   font-size: 1.5em;
   font-weight: bold;
 
@@ -218,7 +218,7 @@ right: -120px;
 }
 
 .hit {
-  font-family: 'Great Vibes';
+  font-family: 'Arial';
   border-radius: 20px;
   border: 1px solid black;
   height: 90px;
@@ -226,7 +226,7 @@ right: -120px;
 }
 
 #thaNewDeal {
-  font-family: 'Great Vibes';
+  font-family: 'Arial';
   font-weight: bold;
   font-size: 1.5em;
   border-radius: 20px;
@@ -245,7 +245,7 @@ right: -120px;
 
 #stay {
   border-radius: 20px;
-  font-family: 'Great Vibes';
+  font-family: 'Arial';
   border: 1px solid black;
   height: 90px;
   width: 140px;

@@ -116,7 +116,7 @@ var Board = React.createClass({
         <div id ="players">
         <div>
           <div className="jumbotron">
-        <button className="btn btn-default" onClick={this.hide} id="toggleCounts">Toggle Counts</button>
+        <button className="btn btn-primary" onClick={this.hide} id="toggleCounts">Toggle Counts</button>
           <div id="counts">
             <h4 id="runningCount"> Running Count: {runCount} </h4>
             <h4 id="trueCount"> True Count: {trueCount} </h4>
