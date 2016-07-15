@@ -1,4 +1,7 @@
+
+var $ = require('jQuery');
 var IndividualPlayer = require('./individual_player')
+
 var Board = React.createClass({
   pictureLoop: function(){
     var array = []
@@ -9,7 +12,6 @@ var Board = React.createClass({
     return array
   },
   hit: function(){
-    console.log("before");
     if(!this.props.table.players[1].stillIn || this.props.table.players[1].stayIn) return;
     var postHit = this.props.table
     postHit.hit(this.props.table.players[1])
@@ -46,7 +48,25 @@ var Board = React.createClass({
       postHit.hit(this.props.table.players[0])
       this.props.updatePostHit(postHit)
     }
+    if(this.props.table.players[0].score() == 17){
+      if(this.props.table.players[0].hand.indexOf('As', 'Ah', 'Ac', 'Ad') !== -1){
+        var postHit = this.props.table
+        postHit.hit(this.props.table.players[0])
+        this.props.updatePostHit(postHit)
+        console.log("hola!!");
+      }
+    }
+    console.log(this.props.table.players[0].hand);
 
+  },
+
+  hide: function(){
+    $("#counts").toggle();
+    var newTable = this.props.table
+    console.log("hola");
+    this.setState({
+      table: newTable
+    })
   },
 
   render: function() {
@@ -95,7 +115,10 @@ var Board = React.createClass({
       <div id="table">
         <div id ="players">
         <div>
+
           <div className="jumbotron">
+        <button className="btn btn-default" onClick={this.hide} id="toggleCounts">Toggle Counts</button>
+          <div id="counts">
             <h4 id="runningCount"> Running Count: {runCount} </h4>
             <h4 id="trueCount"> True Count: {trueCount} </h4>
           </div>

@@ -24,7 +24,6 @@ describe('Given I visit /', function(){
     element(by.id('selectPlayers')).isDisplayed().then(function(result){
       expect(result).to.equal(true)
     })
-    element(by.cssContainingText('option', '0')).click();
     element(by.id('selectPlayers')).getAttribute('value').then(function(result){
       expect(result).to.equal('0')
     })
@@ -38,7 +37,6 @@ describe('Given I visit /', function(){
   })
   it('should display player and robots', function(){
     browser.get('/');
-    element(by.cssContainingText('option', '3')).click();
     element(by.id('startGame')).click();
 
     element(by.id('player0')).isDisplayed().then(function(result){
@@ -85,7 +83,7 @@ describe('Given I visit /', function(){
     element(by.id('thaNewDeal')).click()
     var cards = element.all(protractor.By.css('.card'))
     cards.count().then(function(count){
-      expect(count).to.equal(10)
+      expect(count).to.equal(4)
     })
   })
   it('displays running count', function(){
@@ -101,13 +99,32 @@ describe('Given I visit /', function(){
 
   it('player can hit', function(){
     browser.get('/')
-    element(by.cssContainingText('option', '4')).click();
     element(by.id('startGame')).click()
     element(by.id('hit')).click()
     var cards = element.all(protractor.By.css('.card'))
     cards.count().then(function(counter) {
-      console.log(counter);
-      expect(counter >= 11).to.equal(true)
+      expect(counter >= 5).to.equal(true)
+    })
+  })
+
+  it('hides counts', function(){
+    browser.get('/')
+    element(by.id('startGame')).click()
+    element(by.id('toggleCounts')).click()
+
+    element(by.id('counts')).isDisplayed().then(function(result){
+      expect(result).to.equal(false)
+    })
+  })
+
+  it('shows counts', function(){
+    browser.get('/')
+    element(by.id('startGame')).click()
+    element(by.id('toggleCounts')).click()
+    element(by.id('toggleCounts')).click()
+
+    element(by.id('counts')).isDisplayed().then(function(result){
+      expect(result).to.equal(true)
     })
   })
 

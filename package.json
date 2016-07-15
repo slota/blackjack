@@ -6,6 +6,7 @@
     "chromedriver": "^2.21.2",
     "http": "0.0.0",
     "http-server": "^0.9.0",
+    "jquery": "^3.1.0",
     "mocha": "^2.5.3"
   },
   "devDependencies": {
