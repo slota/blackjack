@@ -2,6 +2,7 @@
 
 var gulp = require('gulp');
 var del = require('del');
+var toastr = require('toastr')
 
 
 

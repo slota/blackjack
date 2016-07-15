@@ -1,5 +1,7 @@
+var toastr = require('toastr')
 var Splash = React.createClass({
   hidden: function() {
+    toastr['info']( 'Play on my child', 'If you plant them they will grow')
     this.props.hide(this.refs.selectBox.value)
   },
   render: function() {
@@ -12,10 +14,6 @@ var Splash = React.createClass({
 
         <select name="select" id="selectPlayers" ref="selectBox">
           <option value="0">0</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
         </select>
         <br/>
         <button onClick={this.hidden} id="startGame" className="btn btn startButton">Start Game</button>
