@@ -2,6 +2,7 @@
   "name": "blackjack-trainer",
   "version": "0.0.0",
   "dependencies": {
+    "babelify": "^6.4.0",
     "chai": "^3.5.0",
     "chromedriver": "^2.21.2",
     "express": "^4.14.0",
