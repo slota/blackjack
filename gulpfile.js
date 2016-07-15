@@ -152,6 +152,13 @@ gulp.task('extras', function() {
         .pipe(gulp.dest('dist/'))
         .pipe($.size());
 });
+gulp.task('serveprod', function() {
+  connect.server({
+    root: ['./app/scripts/app.js'],
+    port: process.env.PORT || 5000, // localhost:5000
+    livereload: false
+  });
+});
 
 // Watch
 gulp.task('watch', ['html', 'fonts', 'bundle'], function() {
@@ -181,7 +188,7 @@ gulp.task('watch', ['html', 'fonts', 'bundle'], function() {
 });
 
 // Build
-gulp.task('build', ['html', 'buildBundle', 'images', 'fonts', 'extras'], function() {
+gulp.task('build', ['html', 'buildBundle', 'images', 'fonts', 'extras', 'serveprod'], function() {
     gulp.src('dist/scripts/app.js')
         .pipe($.uglify())
         .pipe($.stripDebug())
