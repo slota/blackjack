@@ -134,6 +134,10 @@ body {
   font-weight: bolder;
 }
 
+.startButton:hover{
+  opacity: .8;
+}
+
 .hero-unit {
   margin: 50px auto 0 auto;
   width: 300px;
@@ -158,6 +162,20 @@ body {
   padding: 0.2em 0;
 }
 
+#runningCount {
+  font-family: 'Great Vibes';
+  font-size: 1.5em;
+  font-weight: bold;
+
+}
+
+#trueCount {
+  font-family: 'Great Vibes';
+  font-size: 1.5em;
+  font-weight: bold;
+
+}
+
 #player0 {
   height: 100px;
   margin: 0 auto;
@@ -168,7 +186,7 @@ body {
   height: 100px;
   margin: 0 auto;
   display: inherit;
-  margin-top: 350px;
+  margin-top: 200px;
 }
 
 #player2 {
@@ -188,6 +206,57 @@ body {
 #player5 {
   position: relative;
   right: -53%;
+}
+
+.hitAndStay {
+text-align: center;
+float: right;
+height: 100px;
+position: relative;
+top: -270px;
+right: -120px;
+}
+
+.hit {
+  font-family: 'Great Vibes';
+  border-radius: 20px;
+  border: 1px solid black;
+  height: 90px;
+  width: 140px;
+}
+
+#thaNewDeal {
+  font-family: 'Great Vibes';
+  font-weight: bold;
+  font-size: 1.5em;
+  border-radius: 20px;
+  border: 1px solid black;
+  height: 90px;
+  width: 190px;
+}
+
+#hit:hover {
+  opacity: .9;
+  border-radius: 20px;
+  height: 90px;
+  width: 140px;
+}
+
+
+#stay {
+  border-radius: 20px;
+  font-family: 'Great Vibes';
+  border: 1px solid black;
+  height: 90px;
+  width: 140px;
+  margin-left: 10px;
+}
+
+#stay:hover {
+  opacity: .9;
+  border-radius: 20px;
+  height: 90px;
+  width: 140px;
 }
 
 .pic {

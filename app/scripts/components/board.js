@@ -60,23 +60,29 @@ var Board = React.createClass({
     var runCount = this.props.table.runCount
     var trueCount = this.props.table.truthCount
     var winner;
+    var winClass;
     if(this.props.table.findWinner() == 'dealer') {
       winner = 'You lose'
+      winClass = 'alert alert-danger'
     }
     else if(this.props.table.findWinner() == 'push') {
       winner = 'Push'
+      winClass = 'alert alert-default'
     }
     else {
       winner = 'You win'
+      winClass = 'alert alert-success'
     }
     var blackjack = this.props.table.determineBlackJack()
     if (blackjack == 'player blackjack') {
       stayIn = true
       winner = "You win with blackjack!!"
+      winClass = 'alert alert-success'
     }
     if (blackjack == 'dealer blackjack'){
       stayIn = true
       winner = "You lose, dealer has blackjack"
+      winClass = 'alert alert-danger'
     }
     var displayHitAndStay
     if (bust && !stayIn){
@@ -89,19 +95,19 @@ var Board = React.createClass({
       <div id="table">
         <div id ="players">
         <div>
-          <h4 id="runningCount"> Running Count: {runCount} </h4>
-          <h4 id="trueCount"> True Count: {trueCount} </h4>
+          <div className="jumbotron">
+            <h4 id="runningCount"> Running Count: {runCount} </h4>
+            <h4 id="trueCount"> True Count: {trueCount} </h4>
+          </div>
           {(bust
               ? null
               : <div>
-                  <div className="alert alert-danger" id='bustMessage'>You busted, house wins</div>
-                  <button className="btn btn-default" onClick={this.newHand} id="thaNewDeal">deal a new deal</button>
+                  <div className={winClass} id='bustMessage'>You busted, house wins</div>
                 </div>
           )}
           {(stayIn
               ? <div>
-                  <div className="alert alert-danger" id='winMessage'>{winner}</div>
-                  <button className="btn btn-default" onClick={this.newHand} id="thaNewDeal">deal a new deal</button>
+                  <div className={winClass} id='winMessage'>{winner}</div>
                 </div>
               : null
           )}
@@ -110,10 +116,10 @@ var Board = React.createClass({
         </div>
         {(displayHitAndStay
           ? <div className="hitAndStay">
-              <button onClick={this.hit} id='hit' className="deal btn btn-primary"> HIT!! </button>
-              <button id='stay' onClick={this.stay} className="deal btn btn-danger"> STAY!!</button>
+              <button onClick={this.hit} id='hit' className="btn btn startButton hit"> HIT!! </button>
+              <button id='stay' onClick={this.stay} className="btn btn startButton"> STAY!!</button>
             </div>
-          : null
+          : <button className="btn btn-default hitAndStay " onClick={this.newHand} id="thaNewDeal">Deal a new hand</button>
         )}
       </div>
     )

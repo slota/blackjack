@@ -12,7 +12,7 @@ var IndividualPlayer = React.createClass({
       return <img style={{height: '125px'}} src={"../../images/playing_cards/"+ val +".png"} className="card" key={ind} />
     })
     return (
-      <div>
+      <div className="wholePlayer">
         <img style={{height: '200px'}} className="pic" id={'player'+this.props.ind}  src={"../../images/characters/"+ this.props.pictureName +".jpg"} />
         {playerCards}
       </div>
