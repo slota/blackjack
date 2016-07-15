@@ -267,3 +267,6 @@ right: -120px;
   position: relative;
   left: 41.39%;
 }
+.winMessage {
+  font-size: 1.5em;
+}

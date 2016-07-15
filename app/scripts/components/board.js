@@ -83,26 +83,26 @@ var Board = React.createClass({
     var winClass;
     if(this.props.table.findWinner() == 'dealer') {
       winner = 'You lose'
-      winClass = 'alert alert-danger'
+      winClass = 'alert alert-danger winMessage'
     }
     else if(this.props.table.findWinner() == 'push') {
       winner = 'Push'
-      winClass = 'alert alert-default'
+      winClass = 'alert alert-default winMessage'
     }
     else {
       winner = 'You win'
-      winClass = 'alert alert-success'
+      winClass = 'alert alert-success winMessage'
     }
     var blackjack = this.props.table.determineBlackJack()
     if (blackjack == 'player blackjack') {
       stayIn = true
       winner = "You win with blackjack!!"
-      winClass = 'alert alert-success'
+      winClass = 'alert alert-success winMessage'
     }
     if (blackjack == 'dealer blackjack'){
       stayIn = true
       winner = "You lose, dealer has blackjack"
-      winClass = 'alert alert-danger'
+      winClass = 'alert alert-danger winMessage'
     }
     var displayHitAndStay
     if (bust && !stayIn){

@@ -4,7 +4,8 @@ var React = window.React = require('react'),
     Splash = require('./components/splash'),
     Player = require('../unit/player'),
     Table = require('../unit/table'),
-    Shoe = require('../unit/shoe')
+    Shoe = require('../unit/shoe'),
+    toastr = require('toastr')
 
 
 var Container = React.createClass({

@@ -76,7 +76,7 @@ describe('Given I visit /', function(){
   })
   it('displays thaNewDeal', function(){
     element(by.id('thaNewDeal')).getText().then(function(text){
-      expect(text).to.equal('deal a new deal')
+      expect(text).to.equal('Deal a new hand')
     })
   })
   it('redeals when you click new deal', function(){
